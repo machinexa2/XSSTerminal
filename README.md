@@ -8,7 +8,7 @@ Develop your own XSS payload for CTFs and read world smartly. Typing the payload
 3. Run and save xsst sessions for future use.
 4. Go version is currently in development.
 
-Python3 code is deprecated and archived. Please use go and improve it instead.
+Python3 code is deprecated and archived. Please use go and improve it instead. I personally use it thought but i shouldnt. I am too lazy to make go version as effective as python version. 
 
 ## Installation:
 `go get -u -v github.com/machinexa2/XSSTerminal`
