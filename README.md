@@ -1,6 +1,6 @@
 # XSS Terminal
 
-Develop your own XSS payload for CTFs and read world smartly. Typing the payload manually in browser and finding that specific text in view-source is booring. This is the upgrade you need.
+Develop your own XSS payload for CTFs and read response smartly. Typing the payload manually in browser and finding that specific text in view-source is booring. This is the upgrade you need.
 
 ## Features:
 1. Easy to view response without lot of shits.
