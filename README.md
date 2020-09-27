@@ -11,7 +11,7 @@ Develop your own XSS payload for CTFs and read world smartly. Typing the payload
 Python3 code is deprecated and archived. Please use go and improve it instead but i feel lazy sometimes and use python3 coz i feel its better.
 
 ## Installation:
-`go get -u -v github.com/machinexa2/XSSTerminal`
+`go get -u -v github.com/machinexa2/XSSTerminal` or you can use git clone the use archived version.
 
 ## Example Use:
 Using old python3 version, this is what xss development looks like. I was developing xss payload for CTF.  
