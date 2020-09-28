@@ -10,18 +10,23 @@ from argparse import ArgumentParser
 from lib.Globals import *
 from lib.Functions import starter, exit_handler
 
-s = Session()
-
 parser = ArgumentParser(description=colored("XSS Terminal", color='yellow'), epilog=colored('<svg onload=alert(1)></svg>', color='yellow'))
+group = parser.add_mutually_exclusive_group()
+another = parser.add_mutually_exclusive_group()
 parser.add_argument('-u', '--base-url', type=str, help="Base URL")
 parser.add_argument('-p', '--payload', type=str, help="Starting payload")
-parser.add_argument('-e', '--error-string', type=str, help="Error string (Leave empty for -p check)")
+parser.add_argument('-P', '--post-payload', type=str, help="Paylod in format a=b&c=d")
+group.add_argument('-e', '--error-string', type=str, help="Error string")
+group.add_argument('-m', '--match-string', type=str, help="Match string")
+group.add_argument('-b', '--blind-string', type=str, help="Blind error")
+parser.add_argument('-M', '--method', type=str, choices=['GET','POST'], help="HTTP Method (Default get)")
 parser.add_argument('-o', '--output', type=str, help="Output file name")
 parser.add_argument('-r', '--resume', type=str, help="Filename to resume XSST session")
-parser.add_argument('-b', '--banner', action="store_true", help="Print banner and exit")
+parser.add_argument('-B', '--banner', action="store_true", help="Print banner and exit")
 argv = parser.parse_args()
 
 xss_base, xss_payload = starter(argv)
+s = Session()
 
 class XSST:
     def __init__(self, base, xss_payload):
@@ -61,11 +66,17 @@ class XSST:
         for xssy in xss_list:
             xssz = urllib.parse.unquote_plus(xssy)
             if not urllib.parse.unquote_plus(argv.error_string) in xssz:
-                if urllib.parse.unquote_plus(urllib.parse.unquote_plus(self.xss_payload)) in xssz:
-                    return xssy
+                return xssy
             if urllib.parse.unquote_plus(argv.error_string) in xssz:
                 return 'WAF Triggered'
         return 'WAF Triggered'
+
+    def blindxss_check(self, xss_list) -> str:
+        for xssy in xss_list:
+            xssz = urllib.parse.unquote_plus(xssy)
+            if urllib.parse.unquote(argv.blind_string) in xssz:
+                return 'WAF Triggered'
+        return 'BLIND'
 
     def make_xss(self):
         try:
@@ -82,8 +93,10 @@ class XSST:
         if not xssy == 'WAF Triggered':
             colorful_xss = self.return_xsscolor(self.xss_payload, [xssx for xssx in xssy.strip().split(self.xss_payload) if xssx])
             print(f"{ColorObj.good} {colorful_xss}")
-        if xssy == 'WAF Triggered':
+        elif xssy == 'WAF Triggered':
             print(f"{ColorObj.bad} {xssy}")
+        elif xssy == 'BLIND':
+            print(f"{ColorObj.good} Successfully executed")
     
 if __name__ == "__main__":
     Terminal = XSST(xss_base, xss_payload)
@@ -98,5 +111,4 @@ if __name__ == "__main__":
         except Exception as E:
             print(E.__class__)
             print(E)
-            print("WHAT")
             exit()
