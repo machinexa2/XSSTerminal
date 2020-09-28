@@ -27,7 +27,7 @@ For Python3: (Go is quite similar)
 * ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block```
 3. POST is still in development
 
-Using python3 version, this is what xss development looks like. I was developing xss payload for Brutal Lands: Clownflare CTF.  
+Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
 The argument was something like this:-  
 `python3 XSSTerminalX.py --base-url http://brutal.x55.is/?src= -p 'startingtext' -e 'Blocked'`
 ![medevelopingxss](https://cdn.discordapp.com/attachments/741721459520438396/751493373587750962/unknown.png)  
