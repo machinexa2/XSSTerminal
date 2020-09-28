@@ -29,7 +29,9 @@ For Python3: (Go is quite similar)
 
 Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
 The argument was something like this:-  
+
 `python3 XSSTerminalX.py --base-url http://brutal.x55.is/?src= -p 'startingtext' -e 'Blocked'`
+
 ![medevelopingxss](https://cdn.discordapp.com/attachments/741721459520438396/751493373587750962/unknown.png)  
 
 At last, i came up with the payload with console.log()
