@@ -10,7 +10,7 @@ Develop your own XSS payload for CTFs and read response smartly. Typing the payl
 Python3 code is most developed and stable version. Although you may use python3 version, go version is also in development. Please open pull requests to make go version better!
 
 ## Installation:
-For Python3:
+For Python3:  
 `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && ./XSSTerminal.py`
 
 For golang:
