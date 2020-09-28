@@ -15,7 +15,8 @@ For Python3:
 
 For golang:  
 Its disabled until go is perfectly developed: `go get -u -v github.com/machinexa2/XSSTerminal`  
-Instead,
+Instead,  
+
 `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/golang_version && go build xsst.go && mv xsst /usr/bin/XSSTerminal`
 
 ## Example:
