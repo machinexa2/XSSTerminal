@@ -21,10 +21,10 @@ Instead,
 
 ## Example:
 For Python3: (Go is quite similar)
-1. Using one get parameter
-./XSSTerminal.py -u https://baseurl.com/?vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block
-2. Using multiple get parameter
-./XSSTerminal.py -u https://baseurl.com/?par1=yes&par2=no&par3=nothing&vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block
+1. Using one get parameter  
+* ``` ./XSSTerminal.py -u https://baseurl.com/?vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block```
+2. Using multiple get parameter  
+* ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block```
 3. POST is still in development
 
 Using python3 version, this is what xss development looks like. I was developing xss payload for Brutal Lands: Clownflare CTF.  
