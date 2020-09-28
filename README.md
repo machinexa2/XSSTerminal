@@ -5,7 +5,7 @@ Develop your own XSS payload for CTFs and read response smartly. Typing the payl
 1. Easy to view response without lot of shits.
 2. Interactive testing whether `WAF` has blocked or not using error string.
 3. Run and save xsst sessions for future use.
-4. Go version is currently in development.
+4. Both Go and Python3 version are available.
 
 Python3 code is most developed and stable version. Although you may use python3 version, go version is also in development. Please open pull requests to make go version better!
 
