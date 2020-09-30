@@ -7,13 +7,15 @@ Develop your own XSS payload for CTFs and read response smartly. Typing the payl
 3. Run and save xsst sessions for future use.
 4. Both Go and Python3 version are available.
 
-Python3 code is most developed and stable version. Although you may use python3 version, go version is also in development. Please open pull requests to make go version better!
+## Python3 or Golang
+Its obviously your choice! Python3 has easy syntax and lot of features are present! Go on the other hand is quite memory friendly.
+Python3 code is most developed and stable. Go version is in development. Please open pull requests to make go version better!
 
 ## Installation:
 For Python3:  
-* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && ./XSSTerminal.py`
+* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && ln -s "$(pwd)""/XSSTerminalPy.py" /usr/bin/XSSTerminal  `
 
-For golang: (go get disabled until perfectly developed)  
+For golang:
 * `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/golang_version && go build xsst.go && mv xsst /usr/bin/XSSTerminal`
 
 ## Example:
