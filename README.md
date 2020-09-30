@@ -13,7 +13,7 @@ Python3 code is most developed and stable. Go version is in development. Please 
 
 ## Installation:
 For Python3:  
-* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && ln -s "$(pwd)""/XSSTerminalPy.py" /usr/bin/XSSTerminal  `
+* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && python3 -m pip install requirements.txt && ln -s "$(pwd)""/XSSTerminalPy.py" /usr/bin/XSSTerminal  `
 
 For Go:
 * `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/golang_version && go build xsst.go && mv xsst /usr/bin/XSSTerminal`
