@@ -71,5 +71,4 @@ At last, i came up with the payload with console.log()
 
 ## Notes:
 1. Golang version is in development so is python3. May encounter bugs
-2. There are some other issue like which make it suitable for GET request only
 3. Session saving and restoring from file hasnt been implemented in go version and python3 version, POST parameter isnt avialable for now!
