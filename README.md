@@ -7,7 +7,7 @@ Develop your own XSS payload for CTFs and read response smartly. Typing the payl
 3. Run and save xsst sessions for future use.
 4. Both Go and Python3 version are available.
 
-## Python3 or Golang
+## Python3 or Golang?
 Its obviously your choice! Python3 has easy syntax and lot of features are present! Go on the other hand is quite memory friendly.
 Python3 code is most developed and stable. Go version is in development. Please open pull requests to make go version better!
 
@@ -57,7 +57,7 @@ For Python3: (Go is quite similar)
 * ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p 'hello.com"><script>' -e 'Your IP has been blocked'```
 
 3. Using multiple POST parameter:  
-* ``` ./XSSTerminal.py -u https://baseurl.com/waf.php -p 'par1=y&par2=n&par3=s&vulnerable_parameter=hello.com"><script>' -e 'Your IP has been blocked' --method POST
+* ``` ./XSSTerminal.py -u https://baseurl.com/waf.php -p 'par1=y&par2=n&par3=s&vulnerable_parameter=hello.com"><script>' -e 'Your IP has been blocked' --method POST ```
 
 ## Live Example:
 Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
