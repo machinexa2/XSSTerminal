@@ -49,11 +49,14 @@ optional arguments:
 
 ## Example:
 For Python3: (Go is quite similar)
-1. Using one get parameter  
-* ``` ./XSSTerminal.py -u https://baseurl.com/?vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block```
-2. Using multiple get parameter  
-* ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p sometext -e string_to_indicate_WAF_block```
-3. POST is still in development
+1. Using one GET parameter:   
+* ``` ./XSSTerminal.py -u https://baseurl.com/?v= -p hello.com'><script> -e 'Your IP has been blocked'```
+
+2. Using multiple GET parameter:    
+* ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p 'hello.com"><script>' -e 'Your IP has been blocked'```
+
+3. Using multiple POST parameter:  
+* ``` ./XSSTerminal.py -u https://baseurl.com/waf.php -p 'par1=y&par2=n&par3=s&vulnerable_parameter=hello.com"><script>' -e 'Your IP has been blocked' --method POST
 
 ## Live Example:
 Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
