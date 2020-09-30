@@ -46,6 +46,7 @@ optional arguments:
 
 <script>window.location="https://bit.ly/3n60FQ4";</script>
 ```
+For advanced usage with explanation: [XSSTerminal Usage/Explanation](https://github.com/machinexa2/XSSTerminal/wiki/Usage)
 
 ## Example:
 For Python3: (Go is quite similar)
