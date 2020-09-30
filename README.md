@@ -18,6 +18,36 @@ For Python3:
 For Go:
 * `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/golang_version && go build xsst.go && mv xsst /usr/bin/XSSTerminal`
 
+## Usage
+```
+usage: PyXSSTerminal [-h] [-u BASE_URL] [-p PAYLOAD] [-e ERROR_STRING | -s MATCH_STRING | -b BLIND_STRING] [-m {GET,POST}] [-o OUTPUT] [-r RESUME]
+                     [-B]
+
+XSS Terminal
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -u BASE_URL, --base-url BASE_URL
+                        Base URL
+  -p PAYLOAD, --payload PAYLOAD
+                        Starting payload
+  -e ERROR_STRING, --error-string ERROR_STRING
+                        Error string
+  -s MATCH_STRING, --match-string MATCH_STRING
+                        Match string
+  -b BLIND_STRING, --blind-string BLIND_STRING
+                        Blind error string
+  -m {GET,POST}, --method {GET,POST}
+                        HTTP Method (Default get)
+  -o OUTPUT, --output OUTPUT
+                        Output file name
+  -r RESUME, --resume RESUME
+                        Filename to resume XSST session
+  -B, --banner          Print banner and exit
+
+<script>window.location="https://bit.ly/3n60FQ4";</script>
+```
+
 ## Example:
 For Python3: (Go is quite similar)
 1. Using one get parameter  
