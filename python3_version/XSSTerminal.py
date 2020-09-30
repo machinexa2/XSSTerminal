@@ -1,24 +1,24 @@
 #!/usr/bin/python3
-import urllib.parse
 import readline
+import urllib.parse
 
+from os import system
 from requests import Session
 from termcolor import colored
-from os import system
 from argparse import ArgumentParser
 
 from lib.Globals import *
 from lib.Functions import starter, exit_handler
 
 parser = ArgumentParser(description=colored("XSS Terminal", color='yellow'), epilog=colored('<svg onload=alert(1)></svg>', color='yellow'))
-group = parser.add_mutually_exclusive_group()
-another = parser.add_mutually_exclusive_group()
+string_group = parser.add_mutually_exclusive_group()
+#another = parser.add_mutually_exclusive_group()
 parser.add_argument('-u', '--base-url', type=str, help="Base URL")
 parser.add_argument('-p', '--payload', type=str, help="Starting payload")
 parser.add_argument('-P', '--post-payload', type=str, help="Paylod in format a=b&c=d")
-group.add_argument('-e', '--error-string', type=str, help="Error string")
-group.add_argument('-m', '--match-string', type=str, help="Match string")
-group.add_argument('-b', '--blind-string', type=str, help="Blind error")
+string_group.add_argument('-e', '--error-string', type=str, help="Error string")
+string_group.add_argument('-m', '--match-string', type=str, help="Match string")
+string_group.add_argument('-b', '--blind-string', type=str, help="Blind error")
 parser.add_argument('-M', '--method', type=str, choices=['GET','POST'], help="HTTP Method (Default get)")
 parser.add_argument('-o', '--output', type=str, help="Output file name")
 parser.add_argument('-r', '--resume', type=str, help="Filename to resume XSST session")
@@ -44,8 +44,8 @@ class XSST:
         readline.set_pre_input_hook()
         return result
 
-    def return_xsscolor(self, xss, joinable) -> str:
-        xssz = urllib.parse.unquote_plus(urllib.parse.unquote_plus(xss)).rstrip(' ')
+    def return_xsscolor(self, xss_payload, joinable) -> str:
+        xssz = urllib.parse.unquote_plus(urllib.parse.unquote_plus(xss_payload)).rstrip(' ')
         if len(joinable) > 1:
             if not "".join(joinable[1:]) in xssz:
                 xss_payload = joinable[0] + colored(xssz, color='red') + "".join(joinable[1:])
@@ -109,6 +109,5 @@ if __name__ == "__main__":
             else:
                 exit_handler(Terminal.base_url, Terminal.xss_payload, filename=argv.output)
         except Exception as E:
-            print(E.__class__)
-            print(E)
+            print(E,E.__class__)
             exit()
