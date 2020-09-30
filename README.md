@@ -13,7 +13,7 @@ Python3 code is most developed and stable. Go version is in development. Please 
 
 ## Installation:
 For Python3:  
-* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && python3 -m pip install requirements.txt && ln -s "$(pwd)""/XSSTerminalPy.py" /usr/bin/XSSTerminal  `
+* `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/python3_version && python3 -m pip install -r requirements.txt; ln -s "$(pwd)""/XSSTerminalPy.py" /usr/bin/XSSTerminal `
 
 For Go:
 * `git clone https://github.com/machinexa2/XSSTerminal && cd XSSTerminal/golang_version && go build xsst.go && mv xsst /usr/bin/XSSTerminal`
@@ -21,7 +21,6 @@ For Go:
 ## Usage
 ```
 usage: PyXSSTerminal [-h] [-u BASE_URL] [-p PAYLOAD] [-e ERROR_STRING | -s MATCH_STRING | -b BLIND_STRING] [-m {GET,POST}] [-o OUTPUT] [-r RESUME]
-                     [-B]
 
 XSS Terminal
 
@@ -43,7 +42,7 @@ optional arguments:
                         Output file name
   -r RESUME, --resume RESUME
                         Filename to resume XSST session
-  -B, --banner          Print banner and exit
+  --banner          Print banner and exit
 
 <script>window.location="https://bit.ly/3n60FQ4";</script>
 ```
