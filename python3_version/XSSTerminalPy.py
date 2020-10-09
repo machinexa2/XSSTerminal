@@ -3,7 +3,7 @@
 from termcolor import colored
 from argparse import ArgumentParser
 
-from lib.Globals import *
+from lib.Globals import ColorObj, User_Agent
 from lib.XSST import XSST
 from lib.Functions import starter, exit_handler
 
