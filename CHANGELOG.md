@@ -1,3 +1,7 @@
+# Version 2.1
+* Binary added and reformed
+* Improved code execution and markdown file changes
+
 # Version 2.0
 * Added POST method
 * Added blind string check
