@@ -1,3 +1,6 @@
+# Version 2.2
+* PathFunctions totally changed along with other improvements
+
 # Version 2.1
 * Binary added and reformed
 * Improved code execution and markdown file changes
