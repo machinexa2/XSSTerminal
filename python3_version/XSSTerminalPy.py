@@ -4,7 +4,7 @@ from termcolor import colored
 from argparse import ArgumentParser
 
 from lib.Engine import XSST
-from lib.Globals import ColorObj, User_Agent
+from lib.Globals import Color, User_Agent
 from lib.Functions import starter, exit_handler
 
 parser = ArgumentParser(description=colored("XSS Terminal", color='yellow'), epilog=colored('<script>window.location="https://bit.ly/3n60FQ4";</script>', color='yellow'))
@@ -30,5 +30,5 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             (lambda __after: (exit_handler(terminal.base_url, terminal.xss_payload), __after())[1] if (not argv.output) else (exit_handler(terminal.base_url, terminal.xss_payload, filename=argv.output), __after())[1])(lambda: None)
         except Exception as E:
-            print(f"{ColorObj.bad} Unfortunately {E},{E.__class__} occured")
+            print(f"{Color.bad} Unfortunately {E},{E.__class__} occured")
             exit()

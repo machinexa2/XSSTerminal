@@ -3,7 +3,7 @@ from requests import Session
 from termcolor import colored
 from urllib.parse import unquote_plus as urldecode
 
-from lib.Globals import ColorObj
+from lib.Globals import Color
 from lib.Functions import xss_input
 
 s = Session()
@@ -54,7 +54,7 @@ class XSST:
 
     def make_xss(self, argv):
         try:
-            self.xss_payload = xss_input(f"{ColorObj.information} XSS Payload :> ", self.xss_payload)
+            self.xss_payload = xss_input(f"{Color.information} XSS Payload :> ", self.xss_payload)
             url = self.base_url + self.xss_payload
             response = s.get(url).text
             xss_list = response.split('\n')
@@ -67,13 +67,13 @@ class XSST:
             else:
                 xssy = self.stringxss_check(xss_list)
         except Exception as E:
-            print(f"{ColorObj.bad} Error {E},{E.__class__} occured! Exiting");
+            print(f"{Color.bad} Error {E},{E.__class__} occured! Exiting");
             exit(0);
 
         if not xssy == 'WAF Triggered' and not xssy == 'Blind':
             colorful_xss = self.return_xsscolor(self.xss_payload, [xssx for xssx in xssy.strip().split(self.xss_payload) if xssx])
-            print(f"{ColorObj.good} {colorful_xss}")
+            print(f"{Color.good} {colorful_xss}")
         elif xssy == 'WAF Triggered':
-            print(f"{ColorObj.bad} {xssy}")
+            print(f"{Color.bad} {xssy}")
         elif xssy == 'Blind':
-            print(f"{ColorObj.good} Successfully executed")
+            print(f"{Color.good} Successfully executed")
