@@ -13,7 +13,7 @@ Develop your own XSS payload for CTFs and read response smartly. Typing the payl
 4. Both Go and Python3 version are available.
 
 ## Python3 or Golang?
-Its obviously your choice! Python3 has easy syntax and lot of features are present! Go on the other hand is quite memory friendly.
+Its obviously your choice! Python3 has easy syntax and lot of features are present! Go on the other hand is quite fast.
 Python3 code is most developed and stable. Go version is in development. Please open pull requests to make go version better!
 
 ## Installation:
