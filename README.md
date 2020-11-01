@@ -25,7 +25,7 @@ For Go:
 
 ## Usage
 ```
-usage: PyXSSTerminal [-h] [-u BASE_URL] [-p PAYLOAD] [-e ERROR_STRING | -s MATCH_STRING | -b BLIND_STRING] [-m {GET,POST}] [-o OUTPUT] [-r RESUME]
+usage: XSSTerminal [-h] [-u BASE_URL] [-p PAYLOAD] [-e ERROR_STRING | -s MATCH_STRING | -b BLIND_STRING] [-m {GET,POST}] [-o OUTPUT] [-r RESUME]
 
 XSS Terminal
 
@@ -68,7 +68,7 @@ For Python3: (Go is quite similar)
 Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
 The argument was something like this:-  
 
-`python3 XSSTerminalX.py --base-url http://brutal.x55.is/?src= -p 'startingtext' -e 'Blocked'`
+`python3 XSSTerminal.py --base-url http://brutal.x55.is/?src= -p 'startingtext' -e 'Blocked'`
 
 ![medevelopingxss](https://cdn.discordapp.com/attachments/741721459520438396/751493373587750962/unknown.png)  
 
@@ -78,3 +78,4 @@ At last, i came up with the payload with console.log()
 1. Golang version is in development so is python3. May encounter bugs
 2. DOM XSS soon coming (not sure if that could be implemented)
 3. Session saving and restoring from file hasnt been implemented in go version and python3 version, POST parameter isnt avialable for now!
+4. Not a tool for detecting XSS, just for bypassing WAFs and developing payloads
