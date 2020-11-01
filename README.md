@@ -65,7 +65,7 @@ For Python3: (Go is quite similar)
 * ``` ./XSSTerminal.py -u https://baseurl.com/waf.php -p 'par1=y&par2=n&par3=s&vulnerable_parameter=hello.com"><script>' -e 'Your IP has been blocked' --method POST ```
 
 ## Live Example:
-Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF.  
+Using python3 version, this is what xss development looks like. I was developing xss payload for Clownflare WAF (a CTF by Roni Carta aka Lupin)  
 The argument was something like this:-  
 
 `python3 XSSTerminal.py --base-url http://brutal.x55.is/?src= -p 'startingtext' -e 'Blocked'`
