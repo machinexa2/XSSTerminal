@@ -56,10 +56,10 @@ For advanced usage with explanation: [XSSTerminal Usage/Explanation](https://git
 ## Example:
 For Python3: (Go is quite similar)
 1. Using one GET parameter:   
-* ``` ./XSSTerminal.py -u https://baseurl.com/?v= -p hello.com'><script> -e 'Your IP has been blocked'```
+* ``` ./XSSTerminal.py -u https://baseurl.com/?v= -p 'hello.com\'><script>' -e 'Your IP has been blocked'```
 
 2. Using multiple GET parameter:    
-* ``` ./XSSTerminal.py -u https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter= -p 'hello.com"><script>' -e 'Your IP has been blocked'```
+* ``` ./XSSTerminal.py -u 'https://baseurl.com/?par1=y&par2=n&par3=s&vulnerable_parameter=' -p 'hello.com"><script>' -e 'Your IP has been blocked'```
 
 3. Using multiple POST parameter:  
 * ``` ./XSSTerminal.py -u https://baseurl.com/waf.php -p 'par1=y&par2=n&par3=s&vulnerable_parameter=hello.com"><script>' -e 'Your IP has been blocked' --method POST ```
