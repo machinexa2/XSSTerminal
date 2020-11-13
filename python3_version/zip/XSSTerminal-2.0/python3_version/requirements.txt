@@ -1,4 +1,0 @@
-argparse
-requests
-readline
-termcolor
