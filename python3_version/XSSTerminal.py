@@ -28,6 +28,7 @@ while True:
         terminal.make_xss(argv)
     except KeyboardInterrupt:
         (lambda __after: (exit_handler(terminal.base_url, terminal.xss_payload), __after())[1] if (not argv.output) else (exit_handler(terminal.base_url, terminal.xss_payload, filename=argv.output), __after())[1])(lambda: None)
+        exit()
     except Exception as E:
         print(f"{Color.bad} Unfortunately {E},{E.__class__} occured")
         exit()

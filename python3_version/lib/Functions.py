@@ -1,4 +1,5 @@
 import readline
+from lib.Globals import Color
 def xss_input(prompt, text):
          def hook():
              readline.insert_text(text)
@@ -12,8 +13,10 @@ def starter(argv):
     if argv.banner:
         banner()
     if not argv.base_url or not argv.payload:
-        print("Use --help")
+        print(f"{Color.bad} Use --help")
         exit()
+    else:
+        return argv.base_url, argv.payload
 
 def exit_handler(*args, filename=None):
     pass
