@@ -4,6 +4,7 @@ import "fmt"
 import "os"
 import "strings"
 import "regexp"
+import "net/url"
 import "github.com/levigross/grequests"
 import "github.com/machinexa2/gobasic"
 import "github.com/akamensky/argparse"
@@ -21,14 +22,16 @@ func errorxss_check(resp string, errstr string, xss_payload string) string {
 	xss_list := strings.Split(resp, "\n");
 	for i := 0;i < len(xss_list); i++ {
 		xssy := xss_list[i];
-		xssz := gobasic.Urldecode(xssy);
-		matched, err := regexp.MatchString(gobasic.Urldecode(errstr), xssz);
-		gobasic.ErrorHandler(err);
+		xssz, _ := url.QueryUnescape(xssy)
+		errstr, _ = url.QueryUnescape(errstr)
+		matched, err := regexp.MatchString(errstr, xssz)
+		gobasic.ErrorHandler(err)
 		if matched {
 			return "WAF Triggered";
 		}
 		if !(matched) {
-			xss_matched, err := regexp.MatchString(gobasic.Urldecode(xss_payload), xssz);
+			xss_payload, _ = url.QueryUnescape(xss_payload)
+			xss_matched, err := regexp.MatchString(xss_payload, xssz);
 			gobasic.ErrorHandler(err);
 			if xss_matched {
 				return xssy;
@@ -42,8 +45,9 @@ func stringxss_check(resp string, xss_payload string) string {
 	xss_list := strings.Split(resp, "\n");
 	for i := 0;i < len(xss_list); i++ {
 		xssy := xss_list[i];
-		xssz := gobasic.Urldecode(xssy);
-		xss_matched, err := regexp.MatchString(gobasic.Urldecode(xss_payload), xssz);
+		xssz, _ := url.QueryUnescape(xssy);
+		xss_payload, _ := url.QueryUnescape(xss_payload);
+		xss_matched, err := regexp.MatchString(xss_payload, xssz);
 		gobasic.ErrorHandler(err);
 		if xss_matched {
 			return xssy
@@ -66,8 +70,10 @@ func main() {
 	err := parser.Parse(os.Args);
 	xss_base = *base;
 	xss_payload = *payload;
-	gobasic.ArgumentErrorHandler(err);
-
+	if err != nil {
+		fmt.Println("Use --help");
+		os.Exit(0);
+	}
 	if *banner == true {
 		display_banner();
 	} else if *resume != "" {
@@ -76,7 +82,7 @@ func main() {
 		fmt.Println("XSS Terminal");
 		for {
 			xss_url = xss_base + xss_payload; //slasher(xss_base), payloader(xss_payload)
-			xss_payload = gobasic.PrefilledInputRead(xss_payload);
+			xss_payload = gobasic.InputRead(">", xss_payload);
 			response, err := grequests.Get(xss_url, nil);
 			gobasic.ErrorHandler(err);
 			xssy = "WAF Triggered";

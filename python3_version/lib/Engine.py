@@ -45,12 +45,12 @@ class XSST:
                 return 'WAF Triggered'
         return 'WAF Triggered'
 
-    def blindxss_check(self, xss_list, blind_string=None) -> str:
-        for xssy in xss_list:
-            xssz = urldecode(xssy)
-            if urllib.parse.unquote(blind_string) in xssz:
-                return 'WAF Triggered'
-        return 'Blind'
+    # def blindxss_check(self, xss_list, blind_string=None) -> str:
+        # for xssy in xss_list:
+            # xssz = urldecode(xssy)
+            # if urllib.parse.unquote(blind_string) in xssz:
+                # return 'WAF Triggered'
+    #     return 'Blind'
 
     def make_xss(self, argv):
         try:
@@ -70,10 +70,10 @@ class XSST:
             print(f"{Color.bad} Error {E},{E.__class__} occured! Exiting");
             exit(0);
 
-        if not xssy == 'WAF Triggered' and not xssy == 'Blind':
+        if not xssy == 'WAF Triggered':# and not xssy == 'Blind':
             colorful_xss = self.return_xsscolor(self.xss_payload, [xssx for xssx in xssy.strip().split(self.xss_payload) if xssx])
             print(f"{Color.good} {colorful_xss}")
         elif xssy == 'WAF Triggered':
             print(f"{Color.bad} {xssy}")
-        elif xssy == 'Blind':
-            print(f"{Color.good} Successfully executed")
+        #elif xssy == 'Blind':
+        #    print(f"{Color.good} Successfully executed")

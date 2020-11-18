@@ -1,5 +1,6 @@
 # Version 2.2
-* .gitignore removed, i placed it mistakely
+* Improvement in code structure
+* .gitignore removed, I placed it mistakely
 * PathFunctions totally changed along with other improvements
 
 # Version 2.1
